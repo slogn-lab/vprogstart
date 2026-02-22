@@ -2,6 +2,8 @@
 
 # TypeScript Project
 
+Еще не готово
+
 ## Установка
 
 \`\`\`bash
