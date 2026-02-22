@@ -1,11 +1,11 @@
 //1 задача
-interface User{
+export interface User{
     id:number;
     name:string;
     email?:string;
     isActive?:boolean;
 }
-function createUsers(params:User): User {
+export default function createUsers(params:User): User {
     return{
         id: params.id,
         name: params.name,

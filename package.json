@@ -4,10 +4,14 @@
   "description": "лабы по предмету визуальное программирование",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest",
     "build": "tsc",
     "start": "node dist/main.js",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest --watch"
   },
   "repository": {
     "type": "git",
@@ -22,7 +26,12 @@
   },
   "homepage": "https://github.com/slogn-lab/vprogstart#readme",
   "devDependencies": {
+    "@types/jsdom": "^27.0.0",
     "@types/node": "^25.3.0",
-    "typescript": "^5.9.3"
+    "@vitest/coverage-v8": "^4.0.18",
+    "@vitest/ui": "^4.0.18",
+    "jsdom": "^28.1.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
   }
 }

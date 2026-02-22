@@ -1,29 +1,22 @@
 # vprogstart
 
-# TypeScript Project
-
-Еще не готово
-
-## Установка
+## Тестирование
 
 \`\`\`bash
-npm install
-\`\`\`
 
-## Сборка
+# Запуск тестов в режиме watch
 
-\`\`\`bash
-npm run build
-\`\`\`
+npm test
 
-## Запуск
+# Запуск тестов один раз
 
-\`\`\`bash
-npm start
-\`\`\`
+npm run test:run
 
-## Разработка
+# Запуск с UI
 
-\`\`\`bash
-npm run dev
+npm run test:ui
+
+# Покрытие кода
+
+npm run test:coverage
 \`\`\`
