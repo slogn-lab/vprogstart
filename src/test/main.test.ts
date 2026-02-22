@@ -1,5 +1,5 @@
 import { describe, it, expect, test } from 'vitest'
-import {createBook, User, Book} from '../main/main'
+import {createBook, User, Book,calculateArea} from '../main/main'
 import createUsers from '../main/main'
 //test 1
 describe('createUsers parameterized tests', () => {
@@ -53,6 +53,52 @@ describe('createBooktest',()=>{
     it('should return correct book object', () => {
       const result = createBook(input as Book)
       expect(result).toEqual(expected)
+    })
+  })
+})
+//test 3
+describe('calculateArea', () => {
+  // ============= ТЕСТЫ ДЛЯ КРУГА =============
+  describe('circle calculations', () => {
+    // Тест 1: Площадь круга с положительным радиусом
+    it('should calculate area of circle with positive radius', () => {
+      const radius = 5
+      const expected = Math.PI * Math.pow(radius, 2)
+      const result = calculateArea('circle', radius)
+      expect(result).toBeCloseTo(expected, 10) // toBeCloseTo для чисел с плавающей точкой
+    })
+
+    // Тест 2: Площадь круга с радиусом 0
+    it('should return 0 for circle with radius 0', () => {
+      const result = calculateArea('circle', 0)
+      expect(result).toBe(0)
+    })
+    // Тест 3: Площадь круга с дробным радиусом
+    it('should handle fractional radius', () => {
+      const result = calculateArea('circle', 2.5)
+      const expected = Math.PI * Math.pow(2.5, 2)
+      expect(result).toBeCloseTo(expected, 10)
+    })
+  })
+  describe('square calculations', () => {
+    // Тест 4: Площадь квадрата с положительной стороной
+    it('should calculate area of square with positive side', () => {
+      const side = 4
+      const expected = Math.pow(side, 2)
+      const result = calculateArea('square', side)
+      expect(result).toBe(expected)
+    })
+
+    // Тест 5: Площадь квадрата со стороной 0
+    it('should return 0 for square with side 0', () => {
+      const result = calculateArea('square', 0)
+      expect(result).toBe(0)
+    })
+    // Тест 6: Площадь квадрата с дробной стороной
+    it('should handle fractional side length', () => {
+      const result = calculateArea('square', 3.7)
+      const expected = Math.pow(3.7, 2)
+      expect(result).toBeCloseTo(expected, 10)
     })
   })
 })

@@ -25,10 +25,10 @@ export function createBook(book: Book): Book{
 }
 
 //3 задача
-function calculateArea(shape: 'circle', radius: number): number;
-function calculateArea(shape: 'square', side: number): number;
+export function calculateArea(shape: 'circle', radius: number): number;
+export function calculateArea(shape: 'square', side: number): number;
 
-function calculateArea(shape:'circle'|'square',param:number): number{
+export function calculateArea(shape:'circle'|'square',param:number): number{
     switch(shape){
         case 'circle':
             return Math.PI * Math.pow(param, 2);

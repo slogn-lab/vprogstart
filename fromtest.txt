@@ -1,36 +1,4 @@
 //тест работоспособности
-const book1: Book = {
-    title: "Война и мир",
-    author: "Лев Толстой",
-    year: 1869,
-    genre: "fiction"
-};
-const createdBook1 = createBook(book1);
-console.log("Книга 1 (со всеми полями):", createdBook1,"\n");
-const book3: Book = {
-    title: "Преступление и наказание",
-    author: "Федор Достоевский",
-    genre: "fiction"
-};
-const createdBook3 = createBook(book3);
-console.log("Книга 2 (без year):", createdBook3,"\n");
-const nonFictionBook: Book = {
-    title: "Краткая история времени",
-    author: "Стивен Хокинг",
-    year: 1988,
-    genre: "non-fiction"
-};
-
-console.log("Художественная книга:", createBook(book1),"\n");
-console.log("Нон-фикшн книга:", createBook(nonFictionBook),"\n");
-
-//тест работоспособности
-const circleArea1 = calculateArea('circle', 5);
-console.log(`Круг с радиусом 5: ${circleArea1.toFixed(2)}\n`);
-const squareArea1 = calculateArea('square', 4);
-console.log(`Квадрат со стороной 4: ${squareArea1}\n`); 
-
-//тест работоспособности
 console.log('\nреализация (объект):');
 statuses.forEach(status => {
     const color = getStatusColor(status);

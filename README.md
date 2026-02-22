@@ -1,6 +1,6 @@
 # vprogstart
 
-progress: 2/7
+progress: 3/7
 
 ## Тестирование
 
