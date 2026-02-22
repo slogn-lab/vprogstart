@@ -1,5 +1,7 @@
 # vprogstart
 
+progress: 1/7
+
 ## Тестирование
 
 \`\`\`bash
