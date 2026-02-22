@@ -14,13 +14,13 @@ export default function createUsers(params:User): User {
     };
 }
 //2 задача
-interface Book{
+export interface Book{
     title:string;
     author:string;
     year?:number;
     genre:'fiction' | 'non-fiction';
 }
-function createBook(book: Book): Book{
+export function createBook(book: Book): Book{
     return book;
 }
 

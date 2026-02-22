@@ -1,5 +1,5 @@
 import { describe, it, expect, test } from 'vitest'
-import {User} from '../main/main'
+import {createBook, User, Book} from '../main/main'
 import createUsers from '../main/main'
 //test 1
 describe('createUsers parameterized tests', () => {
@@ -32,3 +32,27 @@ describe('createUsers parameterized tests', () => {
   })
 })
 //test 2
+describe('createBooktest',()=>{
+    describe.each([
+        {
+            name: 'all',
+            input:{title: "Война и мир",author: "Лев Толстой",year: 1869,genre: "fiction"},
+            expected:{title: "Война и мир",author: "Лев Толстой",year: 1869,genre: "fiction"}
+        },
+        {
+            name: 'not-all',
+            input:{title: "Преступление и наказание",author: "Федор Достоевский",genre: "fiction"},
+            expected:{title: "Преступление и наказание",author: "Федор Достоевский",year:undefined,genre: "fiction"}
+        },
+        {
+            name: 'other-variant',
+            input:{title: "Краткая история времени",author: "Стивен Хокинг",year: 1988,genre: "non-fiction"},
+            expected:{title: "Краткая история времени",author: "Стивен Хокинг",year: 1988,genre: "non-fiction"}
+        }
+    ])('createBook $name', ({ input, expected }) => {
+    it('should return correct book object', () => {
+      const result = createBook(input as Book)
+      expect(result).toEqual(expected)
+    })
+  })
+})
