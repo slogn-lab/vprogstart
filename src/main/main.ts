@@ -39,22 +39,22 @@ export function calculateArea(shape:'circle'|'square',param:number): number{
     }
 }
 //4 задача
-type Status = 'active' | 'inactive' | 'new';
-const statusColorMap: Record<Status, string> = {
+export type Status = 'active' | 'inactive' | 'new';
+export const statusColorMap: Record<Status, string> = {
     'active': 'green',
     'inactive': 'gray',
     'new': 'blue'
 };
 
-function getStatusColor(status: Status): string {
+export function getStatusColor(status: Status): string {
     return statusColorMap[status];
 }
 
-const statuses: Status[] = ['active', 'inactive', 'new'];
+export const statuses: Status[] = ['active', 'inactive', 'new'];
 //5 задача
-type StringFormatter = (str: string, uppercase?: boolean) => string;
+export type StringFormatter = (str: string, uppercase?: boolean) => string;
 
-const capitalizeFirstLetter: StringFormatter 
+export const capitalizeFirstLetter: StringFormatter 
 = (str: string, uppercase: boolean = false): string => {
     if (str.length === 0) return str;
     
@@ -66,7 +66,7 @@ const capitalizeFirstLetter: StringFormatter
     return uppercase ? result.toUpperCase() : result;
 };
 
-const trimAndTransform: StringFormatter = 
+export const trimAndTransform: StringFormatter = 
 (str: string, uppercase: boolean = false): string => {
     
     const trimmed = str.trim();
@@ -74,16 +74,8 @@ const trimAndTransform: StringFormatter =
    
     return uppercase ? trimmed.toUpperCase() : trimmed;
 };
-
-const capitalizeFirstLetterAlt: StringFormatter = 
-(str, uppercase = false) => 
-    str.length === 0 ? str : 
-    uppercase ? 
-        str.toUpperCase() : 
-        str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-
 //6 задача 
-function  getFirstElement<T>(arr: T[]): T | undefined{
+export function  getFirstElement<T>(arr: T[]): T | undefined{
     if(arr == null){
         return undefined;
     } 
@@ -92,19 +84,14 @@ function  getFirstElement<T>(arr: T[]): T | undefined{
     }
 }
 //7 задача
-interface HasId {
+export interface HasId {
     id: number;
 }
-function findById<T extends HasId>(items: T[], id: number): T | undefined {
+export function findById<T extends HasId>(items: T[], id: number): T | undefined {
     for (let i = 0; i < items.length; i++) {
         if (items[i].id === id) {
             return items[i];
         }
     }
     return undefined;
-}
-interface User7 extends HasId {
-    name: string;
-    email?: string;
-    age: number;
 }

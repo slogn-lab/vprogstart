@@ -1,6 +1,6 @@
 # vprogstart
 
-progress: 3/7
+progress: 7/7(test all)
 
 ## Тестирование
 
@@ -8,7 +8,7 @@ progress: 3/7
 
 # Запуск тестов в режиме watch
 
-npm test
+npx vitest src/test/main.test.ts
 
 # Запуск тестов один раз
 
