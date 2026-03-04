@@ -1,0 +1,56 @@
+import { readFile, writeFile } from "node:fs";
+export function multiply(input:string,output:string ,multiplier: number){
+ let data: string = await readFile(input, 'utf-8')
+ let numbers: string[] = data.split('\n');
+ let result: number[] = [];
+ for(let i=0; i<numbers.length; ++i){
+    let num: number = Number(numbers[i]);
+    if(Number.isNaN(num)){
+        throw new Error;
+        
+    }
+    result.push(num
+    multiplier);
+ }
+}
+//test ts
+import { describe, it, expect, test, vi} from 'vitest'
+import { multiply } from './not'
+import { readFile,writeFile } from 'node:fs/promises'
+import { beforeEach } from 'node:test';
+
+vi.mock('fs/promises');
+describe('Mock mod',()=>{
+    beforeEach(()=>{
+        vi.clearAllMocks();
+    })
+    it('test1', async ()=>{
+        const mreadfile= vi.mocked(readFile);
+        const mwritefile= vi.mocked(writeFile)
+
+        mreadfile.mockResolvedValue(nu)
+
+        const input: string= 'Fake input path';
+        const output:string ='Fake output path';
+        const multiplier: number = 2;
+        const expected: string = '2\n4\n6'
+        await multiply(input,output,multiplier);
+
+        expect(mwritefile).toHaveBeenCalledWith(output, expected)
+    })
+    it('test2', async ()=>{
+        const mreadfile= vi.mocked(readFile);
+        const mwritefile= vi.mocked(writeFile)
+
+        mreadfile.mockResolveValue('1\n2\n3');
+
+        const input: string= 'Fake input path';
+        const output:string ='Fake output path';
+        const multiplier: number = 2;
+        const expected: string = '2\n4\n6'
+        await expect(multiply(input,output,multiplier));
+        .rejects.throw.new.console.error();
+        
+
+    })
+})
