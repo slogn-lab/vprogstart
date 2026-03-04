@@ -1,6 +1,6 @@
 # vprogstart
 
-progress: 7/7(test all)
+готовы обе функции и протестированы
 
 ## Тестирование
 
@@ -8,7 +8,7 @@ progress: 7/7(test all)
 
 # Запуск тестов в режиме watch
 
-npx vitest src/test/main.test.ts
+npx jest src/test/main3.test.ts
 
 # Запуск тестов один раз
 
