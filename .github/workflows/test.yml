@@ -23,4 +23,4 @@ jobs:
         run: npm ci # Чистая установка зависимостей
 
       - name: Run tests
-        run: npx jest src/test/main3.test.ts # Запуск тестов
+        run: npx jest src/test/main4.test.ts # Запуск тестов
