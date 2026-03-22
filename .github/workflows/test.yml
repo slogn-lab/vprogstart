@@ -2,9 +2,9 @@ name: Run Tests
 
 on:
   push:
-    branches: [main, lab1, lab2, lab3, lab4, lab5] # Запуск при пуше в ветку
+    branches: [main, lab1, lab2, lab3, lab4, lab5, lab6] # Запуск при пуше в ветку
   pull_request:
-    branches: [lab2, lab3, lab4, lab5] # Запуск при создании PR
+    branches: [lab2, lab3, lab4, lab5, lab6] # Запуск при создании PR
 
 jobs:
   test:
@@ -23,4 +23,4 @@ jobs:
         run: npm ci # Чистая установка зависимостей
 
       - name: Run tests
-        run: npx vitest src/test/main5.test.ts # Запуск тестов
+        run: npx vitest src/test/main6.test.ts # Запуск тестов
