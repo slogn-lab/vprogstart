@@ -1,40 +1,27 @@
 {
   "name": "vprogstart",
-  "version": "1.0.0",
-  "description": "лабы по предмету визуальное программирование",
-  "main": "main.js",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "test": "vitest",
-    "build": "tsc",
-    "start": "node dist/main.js",
-    "clean": "rimraf dist",
-    "test:ui": "vitest --ui",
-    "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage",
-    "test:watch": "vitest --watch"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/slogn-lab/vprogstart.git"
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/slogn-lab/vprogstart/issues"
-  },
-  "homepage": "https://github.com/slogn-lab/vprogstart#readme",
   "devDependencies": {
-    "@types/jest": "^30.0.0",
-    "@types/jsdom": "^27.0.0",
-    "@types/node": "^25.3.0",
-    "@vitest/coverage-v8": "^4.0.18",
-    "@vitest/ui": "^4.0.18",
-    "jest": "^30.2.0",
-    "jsdom": "^28.1.0",
-    "ts-jest": "^29.4.6",
-    "typescript": "^5.9.3",
-    "vitest": "^4.0.18"
+    "@eslint/js": "^9.39.4",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.4.0",
+    "vite": "^8.0.1"
   }
 }

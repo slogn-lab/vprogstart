@@ -23,4 +23,4 @@ jobs:
         run: npm ci # Чистая установка зависимостей
 
       - name: Run tests
-        run: npx vitest src/test/main6.test.ts # Запуск тестов
+        run: npm run dev
