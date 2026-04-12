@@ -1,26 +1,21 @@
-name: Run Tests
+name: Tests
 
-on:
-  push:
-    branches: [main, lab1, lab2, lab3, lab4, lab5, lab6] # Запуск при пуше в ветку
-  pull_request:
-    branches: [lab2, lab3, lab4, lab5, lab6] # Запуск при создании PR
+on: [push, pull_request]
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - uses: actions/checkout@v4 # Клонирование репозитория
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22.16.0" # Node.js
-          cache: "npm" # Кэширование зависимостей
-
-      - name: Install dependencies
-        run: npm ci # Чистая установка зависимостей
-
-      - name: Run tests
-        run: npm run dev
+    - uses: actions/checkout@v4
+    
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '18.x'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run tests
+      run: npm test -- --watchAll=false
