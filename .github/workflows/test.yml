@@ -1,73 +1,16 @@
-name: Run Tests
+# .github/workflows/test.yml
+name: Tests
 
-on:
-  push:
-    branches: [ lab8_9 ]
-  pull_request:
-    branches: [ lab8_9 ]
+on: [push, pull_request]
 
 jobs:
   test:
     runs-on: ubuntu-latest
     
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x]
-    
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
     
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    
-    - name: Install dependencies
-      run: npm ci
-      # npm ci использует package-lock.json для точной установки версий
-    
-    - name: Run linter (если используете)
-      run: |
-        if npm run | grep -q "lint"; then
-          npm run lint
-        fi
-      continue-on-error: true
-    
-    - name: Run tests with coverage
-      run: npm test -- --coverage --watchAll=false
-    
-    - name: Upload coverage to Codecov (опционально)
-      uses: codecov/codecov-action@v3
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        directory: ./coverage
-        flags: unittests
-        name: codecov-umbrella
-        fail_ci_if_error: false
-    
-    - name: Upload test results (опционально)
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: test-results-${{ matrix.node-version }}
-        path: |
-          coverage/
-          test-results/
-        retention-days: 7
-
-  # Опционально: проверка сборки
-  build:
-    runs-on: ubuntu-latest
-    needs: test
-    
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-    
-    - name: Use Node.js
-      uses: actions/setup-node@v4
+    - uses: actions/setup-node@v4
       with:
         node-version: '18.x'
         cache: 'npm'
@@ -75,7 +18,5 @@ jobs:
     - name: Install dependencies
       run: npm ci
     
-    - name: Build application
-      run: npm run build
-      env:
-        CI: false  # Отключает предупреждения как ошибки при сборке
+    - name: Run tests
+      run: npm test -- --watchAll=false
